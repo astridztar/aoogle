@@ -23,9 +23,15 @@ function lucky(){
 function search() {
     // define aoogle
     var aoogle = document.getElementById("testp");
+    
     // empty aoogle
     aoogle.innerHTML = "";
+    
+    //get input
     var input = document.getElementById("searchBar").value;
+
+    //sanitize input
+    input = input.replace(/[;:'[\]{}\\|_+=()*^%$#@!?<>~`"\/]/g, '');
     
     // counter for list
     var counter = 1;
