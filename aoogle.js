@@ -58,10 +58,15 @@ function search() {
             }
         }
         
+        // store page values in array
+        const pageArray = [];
+        
         // convert to lowerase & see if seach query matches a tag
         if(tagsArray.includes(String(input).toLowerCase()) || descriptionArray.includes(String(input).toLowerCase()) || tagsArrayFurtherSplit.includes(String(input).toLowerCase())) {
             // write out html on page in aoogle p tag
             aoogle.innerHTML += "<br><a style=\"margin:0;text-decoration:none;display:inline-block;padding:0;\" href=\"" + String(item.url) + "\">" + String(counter) + ". " + String(item.url) + "</a><br><b style=\"font-size:18px;margin:0px\">" + String(item.description) + "</b><br><p style=\"margin:0;font-size:12px;\"><b>top 5 tags:</b> " + String(tagsArray[0]) + ", " + String(tagsArray[1]) + ", " + String(tagsArray[2]) + ", " + String(tagsArray[3]) + ", " + String(tagsArray[4]) + "</p> <table style=\"margin:0;padding:0;align-items:center;width:100%;justify-content:center;border-collapse:collapse;\"><tr style=\"height:2px;background-color:blue;\"><th></th></tr></table>";
+            // add url to page array to make sure we dont duplicate this in the results later
+            pageArray.push(String(item.url));
             // increment counter for list
             counter++;
         }
@@ -78,10 +83,15 @@ function search() {
         console.log(String(inputArray.length));
         for(var z in inputArray) {
             if(tagsArray.includes(String(inputArray[z]).toLowerCase()) || descriptionArray.includes(String(inputArray[z]).toLowerCase()) || tagsArrayFurtherSplit.includes(String(inputArray[z]).toLowerCase())) {
-                // write out html on page in aoogle p tag
-                aoogle.innerHTML += "<br><a style=\"margin:0;text-decoration:none;display:inline-block;padding:0;\" href=\"" + String(item.url) + "\">" + String(counter) + ". " + String(item.url) + "</a><br><b style=\"font-size:18px;margin:0px\">" + String(item.description) + "</b><br><p style=\"margin:0;font-size:12px;\"><b>top 5 tags:</b> " + String(tagsArray[0]) + ", " + String(tagsArray[1]) + ", " + String(tagsArray[2]) + ", " + String(tagsArray[3]) + ", " + String(tagsArray[4]) + "</p> <table style=\"margin:0;padding:0;align-items:center;width:100%;justify-content:center;border-collapse:collapse;\"><tr style=\"height:2px;background-color:blue;\"><th></th></tr></table>";
-                // increment counter for list
-                counter++;
+                
+                // make sure the page hasnt already been written
+                if(!pageArray.includes(String(item.url))) {
+                    // write out html on page in aoogle p tag
+                    aoogle.innerHTML += "<br><a style=\"margin:0;text-decoration:none;display:inline-block;padding:0;\" href=\"" + String(item.url) + "\">" + String(counter) + ". " + String(item.url) + "</a><br><b style=\"font-size:18px;margin:0px\">" + String(item.description) + "</b><br><p style=\"margin:0;font-size:12px;\"><b>top 5 tags:</b> " + String(tagsArray[0]) + ", " + String(tagsArray[1]) + ", " + String(tagsArray[2]) + ", " + String(tagsArray[3]) + ", " + String(tagsArray[4]) + "</p> <table style=\"margin:0;padding:0;align-items:center;width:100%;justify-content:center;border-collapse:collapse;\"><tr style=\"height:2px;background-color:blue;\"><th></th></tr></table>";
+                    // increment counter for list
+                    counter++;
+                }
+
             }
         } 
         /////////////////////////////////////////////
