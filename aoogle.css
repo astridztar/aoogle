@@ -1,0 +1,46 @@
+h1 {
+    display: inline-block;
+    font-size: 122px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+p{
+    color: black;
+    display: inline-block;
+    font-size: 42px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+table {
+    padding: 0;
+    margin: 0;
+}
+img {
+    border: 5px solid blue;
+}
+html {
+    background-color: white;
+}
+.center {
+    margin: auto;
+    width: 90%;
+    border 44px solid blue;
+    padding: 10px;
+    text-align: center;
+}
+.footer{
+    display: table;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    bottom:0;
+    padding:10px;
+    left=50%;
+}
